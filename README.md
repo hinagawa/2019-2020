@@ -8,10 +8,5 @@
                гр.11-806
              </b>
 	  </h2>
-	 <h3 align=center>
-		 <hr color='red'>
-	   2019-2020 учебный год
-		 </hr>
-	   </h3>
    </body>
  </html>
