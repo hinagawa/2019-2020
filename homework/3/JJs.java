@@ -15,7 +15,6 @@ public class JJs extends HttpServlet {
         String b=req.getParameter("password");
 
         PrintWriter pw = resp.getWriter();
-        pw.print(a);
 
                 if (a.equals(b))
                     pw.print("\n" +
