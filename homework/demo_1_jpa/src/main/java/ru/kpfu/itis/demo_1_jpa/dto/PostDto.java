@@ -17,14 +17,40 @@ public class PostDto {
     private String title;
     private String text;
     public static PostDto from (PostDB post){
-        return PostDto.builder()
-                .id(post.getId())
+        PostDto pdto=new PostDto();
+        pdto= pdto.builder()
+                .id((Long) post.getId())
                 .title(post.getTitle())
                 .text(post.getText())
                 .build();
+        return pdto;
     }
 
     public static List<PostDto> from (List<PostDB> postList) {
         return postList.stream().map(PostDto::from).collect(Collectors.toList());
+    }
+
+    public Object getTitle() {
+        return title;
+    }
+
+    public void setTitle(Object title) {
+        this.title = (String) title;
+    }
+
+    public Object getText() {
+        return text;
+    }
+
+    public void setText(Object text) {
+        this.text = (String) text;
+    }
+
+    public void setId(Object id) {
+        this.id = (Long) id;
+    }
+
+    public Object getId() {
+        return id;
     }
 }
