@@ -17,9 +17,10 @@ public class AddActionImpl implements AddAction {
 
     @Override
     public void addNote(PostDto pdto) {
-        PostDB post = repo.save(post.Builder()
-                .title(pdto.getTitle())
-                .text(pdto.getText())
+        PostDB post = new PostDB();
+        post = repo.save(post.builder()
+                .title((String) pdto.getTitle())
+                .text((String) pdto.getText())
                 .build());
         pdto.setId(post.getId());
     }
