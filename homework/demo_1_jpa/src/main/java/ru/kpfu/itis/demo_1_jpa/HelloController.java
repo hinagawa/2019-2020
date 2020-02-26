@@ -1,18 +1,15 @@
 package ru.kpfu.itis.demo_1_jpa;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.kpfu.itis.demo_1_jpa.actions.AddAction;
 import ru.kpfu.itis.demo_1_jpa.actions.AddActionImpl;
-import ru.kpfu.itis.demo_1_jpa.data.PostDB;
 import ru.kpfu.itis.demo_1_jpa.dto.PostDto;
 import ru.kpfu.itis.demo_1_jpa.jpa.Repo;
 
-import java.awt.print.Pageable;
-
-@RestController
+@Controller
 public class HelloController {
     private AddAction addAction;
     AddActionImpl addActionImpl;
@@ -39,6 +36,11 @@ public class HelloController {
         }
 
         return "allnotes";
+    }
+    @GetMapping("/hello")
+    public String hello(@RequestParam(defaultValue = "World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "hello";
     }
     @GetMapping("/note")
     public String addNote(){
